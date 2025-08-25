@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffe0ec, #fff0f6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.contenido {
+  max-width: 800px;
+  width: 100%;
+}
+
+h1, p {
+  color: #5f264a;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #d6336c;
+  font-size: 2rem;
+}
+
+.final {
+  font-size: 1.3rem;
+  color: #a61e4d;
+}
+
+/* Carrusel */
+.carrusel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 105, 135, 0.3);
+  margin-bottom: 30px;
+}
+
+.imagenes {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagenes img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 3.5s ease, transform 3.5s ease;
+  border-radius: 20px;
+  z-index: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.imagenes img.activa {
+  opacity: 1;
+  transform: scale(1.01);
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Botones */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 133, 162, 0.8);
+  border: none;
+  font-size: 2rem;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.nav:hover {
+  background: rgba(255, 133, 162, 1);
+}
+
+.nav.prev {
+  left: 10px;
+}
+
+.nav.next {
+  right: 10px;
+}
+
+/* Ocultos */
+.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animación chill */
+.fade-in-chill {
+  animation: fadeInChill 2.5s ease forwards;
+}
+
+@keyframes fadeInChill {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón final */
+.boton-final {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #ff80a1;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.boton-final:hover {
+  background-color: #ff5c8a;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .imagenes {
+    aspect-ratio: auto;
+    height: 516px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .final {
+    font-size: 1.1rem;
+  }
+
+  .nav {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+
+  .boton-final {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}

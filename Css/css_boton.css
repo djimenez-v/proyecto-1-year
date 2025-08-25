@@ -1,0 +1,91 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #ffd6e8, #ffe8f0);
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 90%;
+}
+
+.romantic-button {
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  background: #ff85a2;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 105, 135, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.romantic-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.romantic-button:hover::before {
+  left: 100%;
+}
+
+.romantic-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 105, 135, 0.5);
+}
+
+.sorpresa {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  color: #d6336c;
+  animation: aparecer 1s ease forwards;
+}
+
+.oculto {
+  display: none;
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+  .romantic-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+  }
+
+  .sorpresa {
+    font-size: 1.4rem;
+  }
+}

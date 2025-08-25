@@ -1,0 +1,122 @@
+/* Fuente elegante desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to right, #ffe6f0, #fff);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.contenedor-final {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  padding: 40px;
+  background-color: #ffffffcc;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+  animation: aparecer 1.2s ease forwards;
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lado-izquierdo {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.mensaje-final {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  background-color: #fff0f5;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+  animation: latido 2s infinite;
+}
+
+@keyframes latido {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.imagen-final {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+}
+
+.imagen-final:hover {
+  transform: scale(1.03);
+}
+
+.lado-derecho {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+}
+
+.botones-indice {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.boton-indice {
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff99cc, #ff66b2);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: entradaBoton 1s ease forwards;
+  opacity: 0;
+}
+
+.boton-indice:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 16px rgba(255, 105, 180, 0.5);
+}
+
+@keyframes entradaBoton {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 600px) {
+  .lado-derecho {
+    margin-top: 0;
+  }
+}
