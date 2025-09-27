@@ -1,0 +1,379 @@
+/* Base */
+body {
+    margin: 0;
+    padding: 0;
+    background: #080f1a;
+    overflow-x: hidden;
+    font-family: 'Marck Script', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 120px;
+}
+
+/* Vaso */
+.glass {
+    height: 800px;
+    width: 100%;
+    max-width: 600px;
+    background: #122139;
+    border-radius: 300px 300px 0px 0px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.glass:before {
+    content: "";
+    height: 40px;
+    width: 40px;
+    transform-origin: center;
+    border: 25px solid #122139;
+    border-radius: 100%;
+    position: absolute;
+    left: calc(50% - 20px);
+    top: -74px;
+}
+
+.glass:after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 100%;
+    background: #a52a2a;
+    top: 100%;
+    left: 0;
+}
+
+/* Brillo */
+.shine {
+    width: 26px;
+    height: 330px;
+    background: white;
+    opacity: 0.2;
+    position: absolute;
+    left: 85%;
+    top: 200px;
+    border-radius: 100px;
+    z-index: 10;
+}
+
+.shine:before {
+    content: "";
+    width: 26px;
+    height: 40px;
+    position: absolute;
+    background: white;
+    top: 365px;
+    border-radius: 100px;
+}
+
+/* Texto */
+.texto {
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    margin: 40px 20px 60px;
+    line-height: 1.4;
+    animation: fadeInText 3s ease-in-out;
+}
+
+/* Pétalos */
+.petals>div {
+    position: absolute;
+    background: #d52d58;
+    width: 85px;
+    height: 120px;
+    top: 200px;
+    transition: all 0.5s ease-out;
+}
+
+.petals>div:nth-child(1) {
+    border-radius: 15px;
+    box-shadow: 0px 0px 60px rgba(245, 148, 184, 1);
+    left: 268px;
+    top: 200px;
+}
+
+.petals>div:nth-child(2) {
+    background: #ab1a3f;
+    left: 230px;
+    border-radius: 0px 50px 0px 50px;
+    transform-origin: bottom right;
+    animation: bloom2 3s ease-in-out forwards;
+}
+
+.petals>div:nth-child(3) {
+    background: #ab1a3f;
+    left: 300px;
+    border-radius: 50px 0px 50px 0px;
+    transform-origin: bottom left;
+    animation: bloom3 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals>div:nth-child(4) {
+    background: #b81b43;
+    left: 230px;
+    border-radius: 0px 50px 0px 50px;
+    transform-origin: bottom right;
+    animation: bloom4 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals>div:nth-child(5) {
+    background: #b81b43;
+    left: 300px;
+    border-radius: 50px 0px 50px 0px;
+    transform-origin: bottom left;
+    animation: bloom5 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals>div:nth-child(6) {
+    background: #c9204b;
+    left: 230px;
+    border-radius: 0px 50px 0px 50px;
+    transform-origin: bottom right;
+    animation: bloom6 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+.petals>div:nth-child(7) {
+    background: #c9204b;
+    left: 300px;
+    border-radius: 50px 0px 50px 0px;
+    transform-origin: bottom left;
+    animation: bloom7 3s ease-in-out forwards, glowing 2.5s ease-in-out infinite;
+}
+
+/* Hojas */
+.leaves>div:nth-child(1) {
+    position: absolute;
+    width: 15px;
+    height: 390px;
+    background: #054c05;
+    top: 308px;
+    left: 300px;
+    border-radius: 0 0 100px 100px;
+}
+
+.leaves>div:nth-child(2) {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    border-radius: 10px 80px 40px 80px;
+    background: #054c05;
+    transform-origin: bottom;
+    transform: rotate(-30deg);
+    top: 412px;
+    left: 254px;
+    box-shadow: inset 10px 10px #066406;
+}
+
+.leaves>div:nth-child(3) {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    border-radius: 80px 1px 80px 40px;
+    background: #054c05;
+    transform-origin: bottom;
+    transform: rotate(30deg);
+    top: 360px;
+    left: 300px;
+    box-shadow: inset -10px 10px #066406;
+}
+
+.leaves>div:nth-last-child(1) {
+    position: absolute;
+    width: 55px;
+    height: 30px;
+    background: #338f37;
+    top: 334px;
+    left: 278px;
+    border-radius: 100px;
+}
+
+/* Espinas */
+.thorns>div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 200px;
+}
+
+.thorns>div:nth-child(odd) {
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #054c05;
+    left: 315px;
+}
+
+.thorns>div:nth-child(even) {
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #054c05;
+    left: 285px;
+}
+
+.thorns>div:nth-child(1) { top: 465px; }
+.thorns>div:nth-child(2) { top: 390px; }
+.thorns>div:nth-child(4) { top: 525px; }
+
+/* Pétalos caídos */
+.deadPetals>div {
+    position: absolute;
+    background: #d52d58;
+    width: 20px;
+    height: 15px;
+    top: 200px;
+    border-radius: 0px 30px 0px 30px;
+    box-shadow: 0px 0px 30px rgba(245, 148, 184, .5);
+    transition: all 0.5s ease-out;
+}
+
+.deadPetals>div:nth-child(1) {
+    left: 240px;
+    transform: rotate(-30deg);
+    animation: falling 20s 4s ease-in-out infinite;
+}
+
+.deadPetals>div:nth-child(2) {
+    left: 260px;
+    transform: rotate(-30deg);
+    animation: falling 20s 8s ease-in-out infinite;
+}
+
+.deadPetals>div:nth-child(3) {
+    left: 280px;
+    transform: rotate(-30deg);
+    animation: falling 20s 12s ease-in-out infinite;
+}
+
+.deadPetals>div:nth-child(4) {
+    left: 300px;
+    transform: rotate(-30deg);
+    animation: falling 20s 16s ease-in-out infinite;
+}
+
+/* Animaciones */
+@keyframes bloom2 {
+    50% {
+        transform: rotate(-90deg);
+        top: 400px;
+        left: 150px;
+    }
+    100% {
+        transform: rotate(-60deg);
+        top: 615px;
+        left: 100px;
+        background: #71122a;
+        box-shadow: 0px 0px 0px rgba(245, 148, 184, 0);
+    }
+}
+
+@keyframes bloom3 { 100% { transform: rotate(50deg); } }
+@keyframes bloom4 { 100% { transform: rotate(-25deg); } }
+@keyframes bloom5 {
+    100% {
+        transform: rotate(25deg);
+    }
+}
+
+@keyframes bloom6 {
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes bloom7 {
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes glowing {
+    50% {
+        background: #d7365f;
+        box-shadow: 0px 0px 60px rgba(245, 148, 184, 1);
+    }
+}
+
+@keyframes falling {
+    20% {
+        top: 335px;
+        background: #9d193b;
+        box-shadow: 0px 0px 0px rgba(245, 148, 184, 0);
+    }
+    100% {
+        top: 335px;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin-top: 180px !important;
+    }
+}
+
+
+.boton-amor {
+    background-color: #ff6f91;
+    color: white;
+    border: none;
+    padding: 24px 48px;
+    font-size: 28px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1.5px;
+    margin: 20px auto;
+    display: inline-block;
+}
+
+.boton-amor:hover {
+    background-color: #ff4f7a;
+    transform: scale(1.08);
+}
+
+.boton-container {
+    text-align: center;
+    margin-top: 60px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+}
+
+.boton-container.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .boton-amor {
+        font-size: 26px !important;
+        padding: 24px 48px !important;
+        border-radius: 40px !important;
+    }
+}
